@@ -8,7 +8,7 @@ void ofApp::setup()
     camHeight = 480 / ratio;
 
     vidGrabber.setDeviceID(0);
-    vidGrabber.setDesiredFrameRate(30);
+    vidGrabber.setDesiredFrameRate(60);
     vidGrabber.initGrabber(camWidth, camHeight);
 
     detector = dlib::get_frontal_face_detector();
@@ -25,7 +25,7 @@ void ofApp::processFace() {
     ofPixels pix = vidGrabber.getPixels();
 
     // Make the image larger so we can detect small faces.
-    dlib::pyramid_up(pix);
+     dlib::pyramid_up(pix);
 
     // Now tell the face detector to give us a list of bounding boxes
     // around all the faces in the image.
